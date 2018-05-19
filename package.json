@@ -4,6 +4,8 @@
   "description": "Server side rendering project",
   "main": "index.js",
   "scripts": {
+    "start": "npm-run-all --parallel dev:*",
+    "start:server": "node build/bundle.js",
     "dev": "npm-run-all --parallel dev:*",
     "dev:server": "nodemon build/bundle.js",
     "dev:build-server": "webpack --config webpack.server.js --watch",
@@ -29,11 +31,15 @@
     "nodemon": "1.12.0",
     "npm-run-all": "4.1.1",
     "react": "16.0.0",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "16.0.0",
     "react-helmet": "5.2.0",
+    "react-infinite-calendar": "^2.3.1",
     "react-redux": "5.0.6",
     "react-router-config": "1.0.0-beta.4",
     "react-router-dom": "4.2.2",
+    "react-stripe-checkout": "^2.6.3",
+    "react-transition-group": "^1.2.1",
     "redux": "3.7.2",
     "redux-thunk": "2.2.0",
     "serialize-javascript": "1.4.0",
@@ -41,5 +47,8 @@
     "webpack-dev-server": "2.8.2",
     "webpack-merge": "4.1.0",
     "webpack-node-externals": "1.6.0"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.10"
   }
 }

@@ -4,19 +4,26 @@ const webpack = require('webpack');
 const base_config = require('./webpack.base.js')
 
 
+VENDOR_LIBS = [
+    'react', 'lodash', 'redux', 'react-redux', 'react-dom'
+]
+
 const config = {
 
     target: 'node',
     plugins: [
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('development')
-        })
+        new webpack.DefinePlugin({ "process.env": { NODE_ENV: JSON.stringify("development"),
+        REACT_APP_STRIPE_KEY:JSON.stringify("pk_test_j4Ru6YMa8zr45019QQG3FRv0") } })
     ],
 
-    entry: './src/client/client.js',
+    entry: {
+        bundle: './src/client/client.js',
+        //vendor: VENDOR_LIBS
+    },
+
 
    output: {
-       filename: 'bundle.js',
+       filename: '[name].js',
        path: path.resolve(__dirname , 'public')
    }
    
