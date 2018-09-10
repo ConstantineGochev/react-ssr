@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 10);
+/******/ 	return __webpack_require__(__webpack_require__.s = 12);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -85,134 +85,8 @@ module.exports = require("react-redux");
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.fetch_single = exports.send_data = exports.fetch_charters = exports.FETCH_CHARTER = exports.FETCH_CHARTERS = undefined;
-
-var _axios = __webpack_require__(15);
-
-var _axios2 = _interopRequireDefault(_axios);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
-
-var FETCH_CHARTERS = exports.FETCH_CHARTERS = 'fetch_charters';
-var FETCH_CHARTER = exports.FETCH_CHARTER = 'fetch_charter';
-
-var fetch_charters = exports.fetch_charters = function fetch_charters() {
-  return function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(dispatch) {
-      var res;
-      return regeneratorRuntime.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return _axios2.default.get('https://shielded-springs-23426.herokuapp.com/charters');
-
-            case 2:
-              res = _context.sent;
-
-
-              dispatch({
-                type: FETCH_CHARTERS,
-                payload: res
-              });
-
-            case 4:
-            case 'end':
-              return _context.stop();
-          }
-        }
-      }, _callee, undefined);
-    }));
-
-    return function (_x) {
-      return _ref.apply(this, arguments);
-    };
-  }();
-};
-var send_data = exports.send_data = function send_data(charter) {
-  console.log(undefined.state.curr_charter);
-  store.dispatch({
-    type: 'DETAILS'
-  });
-};
-
-// export const fetch_single = (id) =>dispatch => {
-
-//     axios.get(`https://shielded-springs-23426.herokuapp.com/charters/${id}`)
-//     .then((res)=>{
-//         dispatch({
-//             type: 'DETAILS',
-//             payload:res
-//         })
-
-//     }).catch(function (res) {
-//         if (res instanceof Error) {
-//           // In this case a request was never sent to the server
-//           // Something happened in setting up the request that triggered an Error
-//         } else {
-//           // Here the request was made, but the server responded with a status code
-//           // that falls out of the range of 2xx
-//           // You will have the full response details available
-//         //   dispatch({
-//         //     type: 'DETAILS',
-//         //     payload:res.data
-//         // })
-//           console.log(res.data); // The data that the server responded with
-//           console.log(res.headers); // The response headers from the server
-//           console.log(res.status); // The response status code
-//           console.log(res.config); // The config that was used to make the request
-//         }
-//       });
-
-// }
-
-
-var fetch_single = exports.fetch_single = function fetch_single(id) {
-  return function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(dispatch) {
-      var onSuccess, onError, success;
-      return regeneratorRuntime.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              onError = function onError(error) {
-                dispatch({ type: 'ERROR_GENERATED', error: error });
-                return error;
-              };
-
-              onSuccess = function onSuccess(success) {
-                dispatch({ type: 'DETAILS', payload: success });
-                return success;
-              };
-
-              _context2.prev = 2;
-              _context2.next = 5;
-              return _axios2.default.get('https://shielded-springs-23426.herokuapp.com/charters/' + id);
-
-            case 5:
-              success = _context2.sent;
-              return _context2.abrupt('return', onSuccess(success));
-
-            case 9:
-              _context2.prev = 9;
-              _context2.t0 = _context2['catch'](2);
-              return _context2.abrupt('return', onError(_context2.t0));
-
-            case 12:
-            case 'end':
-              return _context2.stop();
-          }
-        }
-      }, _callee2, undefined, [[2, 9]]);
-    }));
-
-    return function (_x2) {
-      return _ref2.apply(this, arguments);
-    };
-  }();
-};
+var BOATS_DATA = exports.BOATS_DATA = 'boats';
+var BOAT_DATA = exports.BOAT_DATA = 'boat';
 
 /***/ }),
 /* 3 */
@@ -237,32 +111,128 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Home = __webpack_require__(13);
+var _Home = __webpack_require__(15);
 
 var _Home2 = _interopRequireDefault(_Home);
 
-var _ChartersList = __webpack_require__(14);
+var _Boats = __webpack_require__(16);
 
-var _ChartersList2 = _interopRequireDefault(_ChartersList);
+var _Boats2 = _interopRequireDefault(_Boats);
 
-var _PageDetails = __webpack_require__(17);
+var _BoatDetails = __webpack_require__(19);
 
-var _PageDetails2 = _interopRequireDefault(_PageDetails);
+var _BoatDetails2 = _interopRequireDefault(_BoatDetails);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = [_extends({}, _Home2.default, {
     path: '/',
     exact: true
-}), _extends({}, _ChartersList2.default, {
-    path: '/charters',
+}), _extends({}, _Boats2.default, {
+    path: '/boats',
     exact: true
-}), _extends({}, _PageDetails2.default, {
-    path: '/charters/details/:id'
+}), _extends({}, _BoatDetails2.default, {
+    path: '/boats/details/:id'
 })];
 
 /***/ }),
 /* 5 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-router-dom");
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.fetch_single_boat_data = exports.fetch_boats_data = undefined;
+
+var _axios = __webpack_require__(17);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _types = __webpack_require__(2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+var fetch_boats_data = exports.fetch_boats_data = function fetch_boats_data() {
+    return function () {
+        var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(dispatch) {
+            var res;
+            return regeneratorRuntime.wrap(function _callee$(_context) {
+                while (1) {
+                    switch (_context.prev = _context.next) {
+                        case 0:
+                            _context.next = 2;
+                            return _axios2.default.get('https://shielded-springs-23426.herokuapp.com/charters');
+
+                        case 2:
+                            res = _context.sent;
+
+                            //console.log(res)
+
+                            dispatch({
+                                type: _types.BOATS_DATA,
+                                payload: res
+                            });
+
+                        case 4:
+                        case 'end':
+                            return _context.stop();
+                    }
+                }
+            }, _callee, undefined);
+        }));
+
+        return function (_x) {
+            return _ref.apply(this, arguments);
+        };
+    }();
+};
+
+var fetch_single_boat_data = exports.fetch_single_boat_data = function fetch_single_boat_data(id) {
+    return function () {
+        var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(dispatch) {
+            var data;
+            return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                while (1) {
+                    switch (_context2.prev = _context2.next) {
+                        case 0:
+                            _context2.next = 2;
+                            return _axios2.default.get('https://shielded-springs-23426.herokuapp.com/charters/' + id);
+
+                        case 2:
+                            data = _context2.sent;
+
+                            dispatch({
+                                type: _types.BOAT_DATA,
+                                payload: data
+                            });
+
+                        case 4:
+                        case 'end':
+                            return _context2.stop();
+                    }
+                }
+            }, _callee2, undefined);
+        }));
+
+        return function (_x2) {
+            return _ref2.apply(this, arguments);
+        };
+    }();
+};
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -376,7 +346,7 @@ exports.default = function (props) {
 //     }
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -435,7 +405,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 module.exports = invariant;
 
 /***/ }),
-/* 7 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -449,7 +419,7 @@ module.exports = invariant;
 
 
 
-var emptyFunction = __webpack_require__(8);
+var emptyFunction = __webpack_require__(10);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -503,7 +473,7 @@ if (true) {
 module.exports = warning;
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -545,21 +515,21 @@ emptyFunction.thatReturnsArgument = function (arg) {
 module.exports = emptyFunction;
 
 /***/ }),
-/* 9 */
+/* 11 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux");
 
 /***/ }),
-/* 10 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(11);
+__webpack_require__(13);
 
-var _express = __webpack_require__(12);
+var _express = __webpack_require__(14);
 
 var _express2 = _interopRequireDefault(_express);
 
@@ -569,11 +539,11 @@ var _Routes = __webpack_require__(4);
 
 var _Routes2 = _interopRequireDefault(_Routes);
 
-var _renderer = __webpack_require__(20);
+var _renderer = __webpack_require__(22);
 
 var _renderer2 = _interopRequireDefault(_renderer);
 
-var _createStore = __webpack_require__(36);
+var _createStore = __webpack_require__(38);
 
 var _createStore2 = _interopRequireDefault(_createStore);
 
@@ -613,19 +583,19 @@ app.listen(3000, function () {
 });
 
 /***/ }),
-/* 11 */
+/* 13 */
 /***/ (function(module, exports) {
 
 module.exports = require("babel-polyfill");
 
 /***/ }),
-/* 12 */
+/* 14 */
 /***/ (function(module, exports) {
 
 module.exports = require("express");
 
 /***/ }),
-/* 13 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -640,6 +610,8 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(5);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -659,19 +631,15 @@ var Home = function (_React$Component) {
     }
 
     _createClass(Home, [{
-        key: "render",
+        key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                "div",
+                'div',
                 null,
                 _react2.default.createElement(
-                    "button",
-                    { className: "btn" },
-                    _react2.default.createElement(
-                        "a",
-                        { className: "white-text text-darken-2", href: "/charters" },
-                        "CHARTERS"
-                    )
+                    _reactRouterDom.Link,
+                    { className: 'btn white-text text-darken-2', to: '/boats' },
+                    'Boats'
                 )
             );
         }
@@ -685,7 +653,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 14 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -703,13 +671,15 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(1);
 
-var _index = __webpack_require__(2);
+var _index = __webpack_require__(6);
 
-var _Charter = __webpack_require__(16);
+var _reactRouterDom = __webpack_require__(5);
+
+var _Charter = __webpack_require__(18);
 
 var _Charter2 = _interopRequireDefault(_Charter);
 
-var _Details = __webpack_require__(5);
+var _Details = __webpack_require__(7);
 
 var _Details2 = _interopRequireDefault(_Details);
 
@@ -721,58 +691,39 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-//import 'react-infinite-calendar/styles.css';
+var Boats = function (_React$Component) {
+    _inherits(Boats, _React$Component);
 
+    function Boats(props) {
+        _classCallCheck(this, Boats);
 
-var ChartersList = function (_React$Component) {
-    _inherits(ChartersList, _React$Component);
-
-    function ChartersList(props) {
-        _classCallCheck(this, ChartersList);
-
-        var _this = _possibleConstructorReturn(this, (ChartersList.__proto__ || Object.getPrototypeOf(ChartersList)).call(this));
-
-        _this.state = {
-            not_seen: true,
-            charters: []
-
-        };
-        _this.set_charters = _this.set_charters.bind(_this);
-        return _this;
+        return _possibleConstructorReturn(this, (Boats.__proto__ || Object.getPrototypeOf(Boats)).call(this));
     }
 
-    _createClass(ChartersList, [{
+    _createClass(Boats, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
-
-            this.props.fetch_charters();
-            this.set_charters();
-        }
-    }, {
-        key: 'set_charters',
-        value: function set_charters() {
-            var arr = this.props.charters.charters;
-            this.setState({
-                charters: arr
-            });
+            this.props.fetch_boats_data();
         }
     }, {
         key: 'render_charters',
         value: function render_charters() {
-            // console.log(this.props.charters.charters)
-            return this.state.charters.map(function (charter) {
+            // TODO 
+            //Loading component
+            if (this.props.boats.charters === undefined) return _react2.default.createElement(
+                'div',
+                null,
+                'loading...'
+            );
+            return this.props.boats.charters.map(function (charter) {
                 return _react2.default.createElement(
                     'div',
                     { key: charter._id },
                     _react2.default.createElement(_Charter2.default, { model: charter.model }),
                     _react2.default.createElement(
-                        'button',
-                        { className: 'btn' },
-                        _react2.default.createElement(
-                            'a',
-                            { className: 'white-text text-darken-2', href: '/charters/details/' + charter._id },
-                            'DETAILS :)'
-                        )
+                        _reactRouterDom.Link,
+                        { className: 'btn white-text text-darken-2', to: '/boats/details/' + charter._id },
+                        'Details'
                     )
                 );
             });
@@ -780,6 +731,7 @@ var ChartersList = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
+            //console.log(this.props.boats)
             return _react2.default.createElement(
                 'div',
                 null,
@@ -801,32 +753,35 @@ var ChartersList = function (_React$Component) {
         }
     }]);
 
-    return ChartersList;
+    return Boats;
 }(_react2.default.Component);
 
-function map_state_to_props(state) {
-    return { charters: state.charters
+function map_state_to_props(_ref) {
+    var boats = _ref.boats;
+
+    return {
+        boats: boats
     };
 }
 
 function load_data(store) {
 
-    return store.dispatch((0, _index.fetch_charters)());
+    return store.dispatch((0, _index.fetch_boats_data)());
 }
 
 exports.default = {
     load_data: load_data,
-    component: (0, _reactRedux.connect)(map_state_to_props, { fetch_charters: _index.fetch_charters })(ChartersList)
+    component: (0, _reactRedux.connect)(map_state_to_props, { fetch_boats_data: _index.fetch_boats_data })(Boats)
 };
 
 /***/ }),
-/* 15 */
+/* 17 */
 /***/ (function(module, exports) {
 
 module.exports = require("axios");
 
 /***/ }),
-/* 16 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -861,7 +816,7 @@ exports.default = function (props) {
 };
 
 /***/ }),
-/* 17 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -879,13 +834,13 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(1);
 
-var _index = __webpack_require__(2);
+var _index = __webpack_require__(6);
 
-var _Details = __webpack_require__(5);
+var _Details = __webpack_require__(7);
 
 var _Details2 = _interopRequireDefault(_Details);
 
-var _StripeBilling = __webpack_require__(18);
+var _StripeBilling = __webpack_require__(20);
 
 var _StripeBilling2 = _interopRequireDefault(_StripeBilling);
 
@@ -897,55 +852,28 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var PageDetails = function (_React$Component) {
-    _inherits(PageDetails, _React$Component);
+/*TODO
+Don`s use url for id
 
-    function PageDetails(props) {
-        _classCallCheck(this, PageDetails);
+*/
+var BoatDetails = function (_React$Component) {
+    _inherits(BoatDetails, _React$Component);
+
+    function BoatDetails(props) {
+        _classCallCheck(this, BoatDetails);
 
         //console.log(props.location.pathname.split("/").slice(-1)[0])
-        var _this = _possibleConstructorReturn(this, (PageDetails.__proto__ || Object.getPrototypeOf(PageDetails)).call(this));
+        var _this = _possibleConstructorReturn(this, (BoatDetails.__proto__ || Object.getPrototypeOf(BoatDetails)).call(this));
 
         _this.url = props.location.pathname.split("/").slice(-1)[0];
-        _this.state = {
-            url: '',
-            curr_charter: {}
-        };
         _this.render_model = _this.render_model.bind(_this);
         return _this;
     }
 
-    _createClass(PageDetails, [{
+    _createClass(BoatDetails, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
-            this.props.fetch_single(this.url);
-            // console.log(props.location.pathname.split("/").slice(-1)[0])
-
-            // console.log( this.state.url)
-        }
-    }, {
-        key: 'componentWillMount',
-        value: function componentWillMount() {
-            this.set_url(this.url);
-            // console.log(this.state.url)
-        }
-    }, {
-        key: 'componentDidUpdate',
-        value: function componentDidUpdate(prevProps, prevState) {
-            // only update chart if the data has changed
-
-            if (prevProps.charter !== this.props.charter) {
-                this.setState({
-                    curr_charter: this.props.charter[0]
-                });
-            }
-        }
-    }, {
-        key: 'set_url',
-        value: function set_url(url) {
-            this.setState({
-                url: url
-            });
+            this.props.fetch_single_boat_data(this.url);
         }
     }, {
         key: 'render_model',
@@ -954,13 +882,14 @@ var PageDetails = function (_React$Component) {
                 'div',
                 null,
                 ' Model: ',
-                this.props.charter[0].model,
+                this.props.boat.model,
                 ' '
             );
         }
     }, {
         key: 'render',
         value: function render() {
+            console.log(this.props.boat);
             return _react2.default.createElement(
                 'div',
                 null,
@@ -970,26 +899,26 @@ var PageDetails = function (_React$Component) {
         }
     }]);
 
-    return PageDetails;
+    return BoatDetails;
 }(_react2.default.Component);
 
 function map_state_to_props(state) {
     return {
-        charter: state.charter
+        boat: state.boat
     };
 }
 
 function loadDataWithMatch(store, match) {
-    return store.dispatch((0, _index.fetch_single)(match.params.id));
+    return store.dispatch((0, _index.fetch_single_boat_data)(match.params.id));
 }
 
 exports.default = {
     loadDataWithMatch: loadDataWithMatch,
-    component: (0, _reactRedux.connect)(map_state_to_props, { fetch_single: _index.fetch_single })(PageDetails)
+    component: (0, _reactRedux.connect)(map_state_to_props, { fetch_single_boat_data: _index.fetch_single_boat_data })(BoatDetails)
 };
 
 /***/ }),
-/* 18 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1005,7 +934,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactStripeCheckout = __webpack_require__(19);
+var _reactStripeCheckout = __webpack_require__(21);
 
 var _reactStripeCheckout2 = _interopRequireDefault(_reactStripeCheckout);
 
@@ -1055,13 +984,13 @@ var Payments = function (_Component) {
 exports.default = Payments;
 
 /***/ }),
-/* 19 */
+/* 21 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-stripe-checkout");
 
 /***/ }),
-/* 20 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1075,9 +1004,9 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _server = __webpack_require__(21);
+var _server = __webpack_require__(23);
 
-var _reactRouter = __webpack_require__(34);
+var _reactRouter = __webpack_require__(36);
 
 var _reactRouterConfig = __webpack_require__(3);
 
@@ -1087,7 +1016,7 @@ var _Routes2 = _interopRequireDefault(_Routes);
 
 var _reactRedux = __webpack_require__(1);
 
-var _serializeJavascript = __webpack_require__(35);
+var _serializeJavascript = __webpack_require__(37);
 
 var _serializeJavascript2 = _interopRequireDefault(_serializeJavascript);
 
@@ -1113,7 +1042,7 @@ exports.default = function (req, store) {
 };
 
 /***/ }),
-/* 21 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1122,12 +1051,12 @@ exports.default = function (req, store) {
 if (false) {
   module.exports = require('./cjs/react-dom-server.node.production.min.js');
 } else {
-  module.exports = __webpack_require__(22);
+  module.exports = __webpack_require__(24);
 }
 
 
 /***/ }),
-/* 22 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1147,18 +1076,18 @@ if (true) {
 
 'use strict';
 
-var objectAssign$1 = __webpack_require__(23);
-var invariant = __webpack_require__(6);
-var require$$0 = __webpack_require__(7);
+var objectAssign$1 = __webpack_require__(25);
+var invariant = __webpack_require__(8);
+var require$$0 = __webpack_require__(9);
 var react = __webpack_require__(0);
-var emptyFunction = __webpack_require__(8);
-var propTypes = __webpack_require__(24);
-var emptyObject = __webpack_require__(25);
-var hyphenateStyleName = __webpack_require__(26);
-var memoizeStringOnly = __webpack_require__(28);
-var checkPropTypes = __webpack_require__(29);
-var camelizeStyleName = __webpack_require__(31);
-var stream = __webpack_require__(33);
+var emptyFunction = __webpack_require__(10);
+var propTypes = __webpack_require__(26);
+var emptyObject = __webpack_require__(27);
+var hyphenateStyleName = __webpack_require__(28);
+var memoizeStringOnly = __webpack_require__(30);
+var checkPropTypes = __webpack_require__(31);
+var camelizeStyleName = __webpack_require__(33);
+var stream = __webpack_require__(35);
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -4386,19 +4315,19 @@ module.exports = ReactDOMServerNodeEntry;
 
 
 /***/ }),
-/* 23 */
+/* 25 */
 /***/ (function(module, exports) {
 
 module.exports = require("object-assign");
 
 /***/ }),
-/* 24 */
+/* 26 */
 /***/ (function(module, exports) {
 
 module.exports = require("prop-types");
 
 /***/ }),
-/* 25 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4421,7 +4350,7 @@ if (true) {
 module.exports = emptyObject;
 
 /***/ }),
-/* 26 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4436,7 +4365,7 @@ module.exports = emptyObject;
 
 
 
-var hyphenate = __webpack_require__(27);
+var hyphenate = __webpack_require__(29);
 
 var msPattern = /^ms-/;
 
@@ -4463,7 +4392,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 27 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4499,7 +4428,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 28 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4532,7 +4461,7 @@ function memoizeStringOnly(callback) {
 module.exports = memoizeStringOnly;
 
 /***/ }),
-/* 29 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4546,9 +4475,9 @@ module.exports = memoizeStringOnly;
 
 
 if (true) {
-  var invariant = __webpack_require__(6);
-  var warning = __webpack_require__(7);
-  var ReactPropTypesSecret = __webpack_require__(30);
+  var invariant = __webpack_require__(8);
+  var warning = __webpack_require__(9);
+  var ReactPropTypesSecret = __webpack_require__(32);
   var loggedTypeFailures = {};
 }
 
@@ -4598,7 +4527,7 @@ module.exports = checkPropTypes;
 
 
 /***/ }),
-/* 30 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4617,7 +4546,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 31 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4632,7 +4561,7 @@ module.exports = ReactPropTypesSecret;
 
 
 
-var camelize = __webpack_require__(32);
+var camelize = __webpack_require__(34);
 
 var msPattern = /^-ms-/;
 
@@ -4660,7 +4589,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 32 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4695,57 +4624,22 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 33 */
+/* 35 */
 /***/ (function(module, exports) {
 
 module.exports = require("stream");
 
 /***/ }),
-/* 34 */
+/* 36 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-router");
 
 /***/ }),
-/* 35 */
-/***/ (function(module, exports) {
-
-module.exports = require("serialize-javascript");
-
-/***/ }),
-/* 36 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _redux = __webpack_require__(9);
-
-var _reduxThunk = __webpack_require__(37);
-
-var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
-
-var _reducers = __webpack_require__(38);
-
-var _reducers2 = _interopRequireDefault(_reducers);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = function () {
-    var store = (0, _redux.createStore)(_reducers2.default, {}, (0, _redux.applyMiddleware)(_reduxThunk2.default));
-
-    return store;
-};
-
-/***/ }),
 /* 37 */
 /***/ (function(module, exports) {
 
-module.exports = require("redux-thunk");
+module.exports = require("serialize-javascript");
 
 /***/ }),
 /* 38 */
@@ -4758,47 +4652,29 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _redux = __webpack_require__(9);
+var _redux = __webpack_require__(11);
 
-var _chartersReducer = __webpack_require__(39);
+var _reduxThunk = __webpack_require__(39);
 
-var _chartersReducer2 = _interopRequireDefault(_chartersReducer);
+var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-var _charterReducer = __webpack_require__(40);
+var _reducers = __webpack_require__(40);
 
-var _charterReducer2 = _interopRequireDefault(_charterReducer);
+var _reducers2 = _interopRequireDefault(_reducers);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = (0, _redux.combineReducers)({
-    charters: _chartersReducer2.default,
-    charter: _charterReducer2.default
-});
+exports.default = function () {
+    var store = (0, _redux.createStore)(_reducers2.default, {}, (0, _redux.applyMiddleware)(_reduxThunk2.default));
+
+    return store;
+};
 
 /***/ }),
 /* 39 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _actions = __webpack_require__(2);
-
-exports.default = function () {
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-    var actions = arguments[1];
-
-    switch (actions.type) {
-        case _actions.FETCH_CHARTERS:
-            return actions.payload.data;
-        default:
-            return state;
-    }
-};
+module.exports = require("redux-thunk");
 
 /***/ }),
 /* 40 */
@@ -4811,23 +4687,71 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _actions = __webpack_require__(2);
+var _redux = __webpack_require__(11);
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+var _boatsReducer = __webpack_require__(41);
 
-var InitialState = {
-    data: []
-};
+var _boatsReducer2 = _interopRequireDefault(_boatsReducer);
+
+var _boatReducer = __webpack_require__(42);
+
+var _boatReducer2 = _interopRequireDefault(_boatReducer);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = (0, _redux.combineReducers)({
+    boats: _boatsReducer2.default,
+    boat: _boatReducer2.default
+});
+
+/***/ }),
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _types = __webpack_require__(2);
 
 exports.default = function () {
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
     var actions = arguments[1];
 
     switch (actions.type) {
-        case 'DETAILS':
-            // console.log(actions.payload.data)
-            console.log(actions.payload.data.charter.model);
-            return [].concat(_toConsumableArray(state), [{ model: actions.payload.data.charter.model }]);
+        case _types.BOATS_DATA:
+            console.log(actions.payload.data);
+            return actions.payload.data;
+        default:
+            return state;
+    }
+};
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _types = __webpack_require__(2);
+
+exports.default = function () {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var actions = arguments[1];
+
+    switch (actions.type) {
+        case _types.BOAT_DATA:
+            console.log(actions.payload.data);
+            // console.log(actions.payload.data.charter.model)
+            return actions.payload.data.charter;
 
         default:
             return state;
