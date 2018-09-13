@@ -1,3 +1,5 @@
+
+
 module.exports = {
     module: {
        
@@ -7,8 +9,9 @@ module.exports = {
             exclude: /node_modules/,
             options: {
                 presets: [
+                    'es2015',
                     'react',
-                    'stage-0',
+                    'stage-3',
                     ['env', {
                         targets:{
                             browsers:[
@@ -16,8 +19,11 @@ module.exports = {
                             ]
                         }
                     }]
-                ]
-            }
+                ],
+                plugins: ['transform-class-properties',
+                   ],
+            },
+
         }]
     }
 }

@@ -16,11 +16,11 @@ class Boats extends React.Component {
     }
 
 
-    render_charters(){
+    render_charters = () => {
          // TODO 
          //Loading component
-          if(this.props.boats.charters === undefined) return <div>loading...</div>
-          return this.props.boats.charters.map((charter)=>{
+          if(this.props.boats === undefined) return <div>loading...</div>
+          return this.props.boats.map((charter)=>{
               return (
                   <div key={charter._id}>
                      <Charter model={charter.model}/>
@@ -33,11 +33,12 @@ class Boats extends React.Component {
     
     render(){
         //console.log(this.props.boats)
+        //console.log(AdSense)
         return (
             <div>
                 <button><a href="/">Home</a></button>
                 <ul>
-                   {this.render_charters()}
+                    {this.render_charters()}
                 </ul>
             </div>
         )

@@ -13,6 +13,7 @@ app.use(express.static('public'));
 
 app.get('*',(req, res)=>{
     
+    
     const store = createStore();
     const promises = matchRoutes(Routes, req.path).map(({route, match})=>{
              // route.dispatch_id(store)

@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {fetch_single_boat_data} from '../actions/index';
 import Details from '../components/Details';
+import {Link} from 'react-router-dom'
 import Payments from '../components/StripeBilling'
 
 
@@ -29,10 +30,11 @@ class BoatDetails extends React.Component{
     }
 
     render(){
-        console.log(this.props.boat)
+     //   console.log(this.props.boat)
         return (
             
             <div>
+                <Link to='/boats'>Back</Link>
                 {this.render_model()}
                 <Payments />
             </div>

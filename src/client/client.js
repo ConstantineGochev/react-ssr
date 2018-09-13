@@ -8,14 +8,15 @@ import Routes from './Routes';
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import {Provider} from 'react-redux';
-import reducers from './reducers'
+import reducers from './reducers';
+
 
 
 
 export const store = createStore(reducers, window.INITIAL_STATE, applyMiddleware(thunk));
-// store.subscribe(()=>{
-//   console.log(store.getState());
-// })
+store.subscribe(()=>{
+  console.log(store.getState());
+})
 
 ReactDOM.hydrate(
     <Provider store={store} suppressHydrationWarning={true}>
