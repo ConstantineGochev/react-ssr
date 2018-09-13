@@ -37,7 +37,7 @@ app.get('/boats/:id', (req, res) => {
      Boat.findById(req.params.id).then((data) => {
        console.log(data)
        res.send(data)
-     })
+     }).catch(err => console.log(err))
 })
 
 
