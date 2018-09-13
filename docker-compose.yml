@@ -22,6 +22,8 @@ services:
       - ./server:/app
     links:
       - mongo
+    depends_on:
+      - mongo
   client:
     build:
       dockerfile: Dockerfile
