@@ -13,6 +13,7 @@ services:
     ports:
       - '27017:27017'
   api:
+    restart: always  
     build:
       dockerfile: Dockerfile
       context: ./server
