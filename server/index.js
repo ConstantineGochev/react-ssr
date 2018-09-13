@@ -7,8 +7,7 @@ const Schema = mongoose.Schema;
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }))
 mongoose.connect(
-  'mongodb://mongo:27017/',
-  { useNewUrlParser: true },
+  'mongodb://mongo:27017/platform',
   function (err, db) {
     if(err) {
       console.log(err)
