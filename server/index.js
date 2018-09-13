@@ -7,13 +7,13 @@ const Schema = mongoose.Schema;
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }))
 mongoose.connect(
-  'mongodb://mongo:27017/platform',
+  'mongodb://mongo:27017/',
   { useNewUrlParser: true },
   function (err, db) {
     if(err) {
       console.log(err)
     }
-   // db.collection('boats').insertMany([{ model: 'Boat_1' }, { model: 'Boat_2' }, { model: 'Boat_3' }])
+    db.collection('boats').insertMany([{ model: 'Boat_1' }, { model: 'Boat_2' }, { model: 'Boat_3' }])
 })
 
 
