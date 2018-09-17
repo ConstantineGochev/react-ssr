@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
       context: ./nginx
     ports:
-      - '3050:80'
+      - '4000:80'
   mongo:
     container_name: mongo
     image: mongo
