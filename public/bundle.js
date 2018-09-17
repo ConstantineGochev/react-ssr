@@ -26344,9 +26344,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 //starting point for client side application
 var store = exports.store = (0, _redux.createStore)(_reducers2.default, window.INITIAL_STATE, (0, _redux.applyMiddleware)(_reduxThunk2.default));
-store.subscribe(function () {
-  console.log(store.getState());
-});
+// store.subscribe(()=>{
+//   console.log(store.getState());
+// })
 
 _reactDom2.default.hydrate(_react2.default.createElement(
   _reactRedux.Provider,

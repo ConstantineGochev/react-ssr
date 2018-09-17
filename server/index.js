@@ -6,6 +6,7 @@ const Schema = mongoose.Schema;
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }))
+var options = { replset: { socketOptions: { connectTimeoutMS : 1000 }}};
 mongoose.connect(
   'mongodb://mongo:27017/platform',
   function (err, db) {
@@ -13,8 +14,8 @@ mongoose.connect(
       console.log(err)
     }
     db.collection('boats').insertMany([{ model: 'Boat_1' }, { model: 'Boat_2' }, { model: 'Boat_3' }])
-})
-
+},options)
+mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 const boatSchema = new Schema({
   model: {
@@ -27,7 +28,7 @@ const Boat = mongoose.model('boats', boatSchema)
 app.get('/boats', (req, res) => {
   
  Boat.find().then((data) => {
-    console.log(data)
+  //  console.log(data)
     res.send(data)
 
   }).catch(err => console.log(err))

@@ -14,9 +14,9 @@ import reducers from './reducers';
 
 
 export const store = createStore(reducers, window.INITIAL_STATE, applyMiddleware(thunk));
-store.subscribe(()=>{
-  console.log(store.getState());
-})
+// store.subscribe(()=>{
+//   console.log(store.getState());
+// })
 
 ReactDOM.hydrate(
     <Provider store={store} suppressHydrationWarning={true}>
