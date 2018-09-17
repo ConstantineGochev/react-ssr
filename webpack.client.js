@@ -14,6 +14,7 @@ const config = {
     plugins: [
         new webpack.DefinePlugin({ "process.env": { NODE_ENV: JSON.stringify("production"),
         REACT_APP_STRIPE_KEY:JSON.stringify("pk_test_j4Ru6YMa8zr45019QQG3FRv0") } }),
+        new webpack.optimize.UglifyJsPlugin()
     ],
 
 
