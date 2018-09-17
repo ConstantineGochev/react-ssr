@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 module.exports = (cb) => {
     var options = { replset: { socketOptions: { connectTimeoutMS: 1000 } } };
     mongoose.connect(
-        'mongodb://mongo/',
+        'mongodb://mongo:27017/platform',
         function (err, db) {
             if (err) {
                 console.log(err)
